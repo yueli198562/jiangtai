@@ -1,20 +1,19 @@
 #coding=utf8
 
 from HTMLTestRunner import HTMLTestRunner
-import unittest,time
+import unittest,time,os
+from setting.send_email import *
 
-test_dir="./case" #指定测试用例为当前文件夹下的case目录
-discover=unittest.defaultTestLoader.discover(test_dir,pattern="foot*.py")
+base_dir = os.path.dirname(os.path.dirname(__file__)) # 返回当前文件所在目录的上级目录
+
+foot= base_dir + "/teaching/number/foot"  #找到excel数据配置文件
+print foot
+discover=unittest.defaultTestLoader.discover("./case",pattern="foot1.py")
 
 if __name__=="__main__":
-    now=time.strftime("%y-%m-%d %H_%M_%S") #获取当前格式化日期
-    filename="./test_report/"+now+"_result.html" #测试报告路径
-    f=open(filename,"wb")
-    runner=HTMLTestRunner(stream=f,title="235245",description="23452345")    
+    runner = unittest.TextTestRunner()
     runner.run(discover)
-    f.close()
-
-
+    sed_mail(foot)  # 发送邮件
 
 
 

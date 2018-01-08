@@ -133,3 +133,4 @@ driver.find_element_by_id("checkCertification").click()
 #审核页面点击 通过
 driver.find_element_by_xpath('//*[@class="b4"]').click()
 driver.switch_to_alert().accept()
+driver.quit()

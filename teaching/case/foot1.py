@@ -23,8 +23,6 @@ driver.find_element_by_name("j_username").send_keys(B2)
 driver.find_element_by_name("j_password").clear()
 driver.find_element_by_name("j_password").send_keys(B3)
 driver.find_element_by_xpath('//*[@href="#"  and  @tabindex="3"]/img').click()
-
-
 #点击左侧菜单云南省教育保险-在线投保-云南省校园视频安全责任
 driver.switch_to_frame("nav")  #先切换frame表单
 driver.find_element_by_xpath("//*[@id='menu']/li[8]/a").click()
@@ -73,7 +71,7 @@ driver.find_element_by_id('step4_ok').click()
 time.sleep(1)
 Insure_single_number=driver.find_element_by_partial_link_text("NO").text
 f=open(foot,"a+")
-f.write("食品安全责任前期准备数据\n（高中  300万  100人  12个月）："+Insure_single_number[4:].encode('utf-8'))
+f.write("\n（高中  300万  100人  12个月）："+Insure_single_number[4:].encode('utf-8'))
 f.close()
 driver.quit()
 #-------上传单证-------
@@ -133,4 +131,5 @@ driver.find_element_by_id("checkCertification").click()
 #审核页面点击 通过
 driver.find_element_by_xpath('//*[@class="b4"]').click()
 driver.switch_to_alert().accept()
+driver.quit()
 

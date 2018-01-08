@@ -51,7 +51,8 @@ time.sleep(1)
 driver.find_element_by_xpath("//*[@id='policyHolderInfo_email']").clear() #清空联系人邮箱
 driver.find_element_by_xpath("//*[@id='policyHolderInfo_email']").send_keys(B4) #清空联系人邮箱
 driver.find_element_by_id("step1_ok" ).click() #点击下一步
-#选择职业院校
+#选择普通院校
+time.sleep(1)
 driver.find_element_by_xpath('//*[@id="bxrType" and @value="32"]').click()
 #上传被保险人信息页面
 time.sleep(1)
@@ -135,3 +136,4 @@ driver.find_element_by_id("checkCertification").click()
 #审核页面点击 通过
 driver.find_element_by_xpath('//*[@class="b4"]').click()
 driver.switch_to_alert().accept()
+driver.quit()
